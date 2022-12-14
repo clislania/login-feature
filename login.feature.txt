@@ -1,0 +1,95 @@
+#linguage: pt
+
+Funcionalidade: Configurar produto
+
+Como cliente da EBAC-SHOP
+Quero configurar meu produto de acordo com meu tamanho e gosto
+E escolher a quantidade
+Para depois inserir no carrinho
+
+Contexto: Dado que eu ecesse o portal da EBAC-SHOP 
+
+Cenário: Seleção completa
+
+Quando eu selecionar a cor, tamanho
+E quantidade
+Então deve exibir as informações que selecionei 
+
+Cenário: Seleção incompleta 
+ 
+Quando eu selecionar apenas cor
+E quantidade
+Então deve exibir uma mensagem de alerta "selecione o tamanho"
+
+Cenário: Quatidade inválida
+
+Quando eu selecionar cor, tamanho
+E quantidade de 11 produtos
+Então deve exibir uma mensagem de alerta "quantidade excedida"
+
+Cenário: Função "limpar" válida
+
+Quando desistir do produto escolhido
+E clicarno botão "limpar"
+Então deve voltar ao estado original
+
+Funcionalidade: Login na plataforma
+
+Como cliente da EBAC-SHOP
+Quero fazer o login (autenticação) na plataforma  
+Para visualizar meus pedidos
+
+Contexto: Dado que eu acesse a pagina de autenticação do portal EBAC-SHOP
+
+Esquema do Cenário: Autenticação válida
+Quando eu digitar o <usuário>
+E <senha>
+Então deve exibir uma mensagem de sucesso
+|usuário|senha|mensagem|
+|"maria@ebac.com.br"|"teste@123"|"Olá Maria!"|
+|"joao@ebac.com.br"|"teste@123"|"Olá João!"|
+|"jose@ebac.com.br"|"teste@123"|"Olá José!"|
+|"ana@ebac.com.br"|"teste@123"|"Olá Ana!"|
+
+Quando eu digitar o usuário "maria@ebac.com.br"
+E senha "123abc"
+Então deve exibir uma mensagem de boas vindas "olá Maria"
+
+Cenário: Autenticar multiplos usuário
+
+
+Cenário: Usuário inválido
+
+Quando eu digitar o usuário "maria@ebac.com.br"
+E senha "zxcvbb"
+Então deve exibir uma mensagem de alerta "usuário ou senha inválidos"
+
+Funcionalidade: Tela de cadastro - Checkout
+
+Como cliente da EBAC-SHOP
+Quero concluir meu cadastro   
+Para finalizar minha compra
+
+Contexto: 
+Dado que eu acesse a tela de cadastrado do portal EBAC-SHOP
+
+Cenário:  Cadastro válido
+
+Quando preencher o campo "Nome*"
+E "Data de nascimento*"
+E "Endereço*"
+E "Email*"
+Então deve exibir mensagem de sucesso "Cadastro concluido com sucesso"
+
+Cenário: Autenticação invalidas
+
+Quando preencher o e-mail "mariaa00@ebac.com.br
+Então deve exibir mensagem de alerta "Usuário inválido"
+
+Cenário: Cadastro inválido
+
+Quando eu finalizar cadastrado
+E o campo Endereço estiver "vazio"
+Então deve exibir mensagem de alerta "O campo Endereço é obrigatório"
+
+
